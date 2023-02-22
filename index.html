@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PHP API</title>
+    </head>
+    <body>
+
+        <div id="app">
+
+            <div>
+                <ul>
+                    <li v-for="(student, index) in students">
+                        {{ student.full_name }}
+
+                        <button @click="getStudentInfo(index)">
+                            Mostra tutte le informazioni
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="student-info" v-if="singleStudent">
+                <h2>
+                    Studente selezionato
+                </h2>
+                <ul>
+                    <li>
+                        Nome: {{ singleStudent.first_name }}
+                    </li>
+                    <li>
+                        Cognome: {{ singleStudent.last_name }}
+                    </li>
+                    <li>
+                        Email: {{ singleStudent.email }}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
