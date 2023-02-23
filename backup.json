@@ -23,25 +23,5 @@
         "first_name": "Enzo",
         "last_name": "Blu",
         "email": "enzo.blu@api.com"
-    },
-    {
-        "first_name": "Alessio",
-        "last_name": "Vietri",
-        "email": "alvietri@gmail.com"
-    },
-    {
-        "first_name": "Alessio 2",
-        "last_name": "Vietri 2",
-        "email": "alvietri2@gmail.com"
-    },
-    {
-        "first_name": "Diletta",
-        "last_name": "Pelloni",
-        "email": "diletta@pelloni.it"
-    },
-    {
-        "first_name": "Zineb",
-        "last_name": "Atlassi",
-        "email": "zineb@atlassi.it"
     }
 ]

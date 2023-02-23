@@ -11,6 +11,35 @@
         <div id="app">
 
             <div>
+                <h2>
+                    Aggiungi studente
+                </h2>
+                <form action="create.php" method="POST" @submit.prevent="addStudent()">
+                    <div>
+                        <label for="first_name">
+                            Nome
+                        </label>
+                        <input type="text" v-model="newStudent.firstName" name="first_name" id="first_name" placeholder="Inserisci il nome del nuovo studente..." required>
+                    </div>
+                    <div>
+                        <label for="last_name">
+                            Cognome
+                        </label>
+                        <input type="text" v-model="newStudent.lastName" name="last_name" id="last_name" placeholder="Inserisci il cognome del nuovo studente..." required>
+                    </div>
+                    <div>
+                        <label for="email">
+                            Email
+                        </label>
+                        <input type="email" v-model="newStudent.email" name="email" id="email" placeholder="Inserisci l'email del nuovo studente..." required>
+                    </div>
+                    <button type="submit">
+                        Aggiungi
+                    </button>
+                </form>
+            </div>
+
+            <div>
                 <ul>
                     <li v-for="(student, index) in students">
                         {{ student.full_name }}

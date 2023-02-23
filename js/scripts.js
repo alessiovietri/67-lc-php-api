@@ -3,15 +3,21 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            apiUrl: './api.php',
+            readUrl: './read.php',
+            createUrl: './create.php',
             students: [],
-            singleStudent: null
+            singleStudent: null,
+            newStudent: {
+                firstName: '',
+                lastName: '',
+                email: '',
+            }
         };
     },
     methods: {
         getStudentInfo(index) {
             axios
-                .get(this.apiUrl, {
+                .get(this.readUrl, {
                     params: {
                         student: index
                     }
@@ -20,11 +26,33 @@ createApp({
                     console.log(response);
                     this.singleStudent = response.data.student;
                 });
+        },
+        addStudent() {
+            console.log(this.newStudent);
+            
+            axios.post(this.createUrl, {
+                student: this.newStudent
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+            ).then((response) => {
+                console.log(response);
+
+                this.students.push({
+                    full_name: this.newStudent.firstName + ' ' + this.newStudent.lastName
+                });
+
+                this.newStudent.firstName = '';
+                this.newStudent.lastName = '';
+                this.newStudent.email = '';
+            });
         }
     },
     created() {
         axios
-            .get(this.apiUrl)
+            .get(this.readUrl)
             .then((response) => {
                 console.log(response);
                 this.students = response.data.students;
